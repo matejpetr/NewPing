@@ -130,9 +130,9 @@ boolean NewPing::ping_trigger() {
 	#endif
 
 	*_triggerOutput &= ~_triggerBit;   // Set the trigger pin low, should already be low, but this will make sure it is.
-	delayMicroseconds(4);              // Wait for pin to go low.
+	delayMicroseconds(6);              // Wait for pin to go low.
 	*_triggerOutput |= _triggerBit;    // Set trigger pin high, this tells the sensor to send out a ping.
-	delayMicroseconds(10);             // Wait long enough for the sensor to realize the trigger pin is high. Sensor specs say to wait 10uS.
+	delayMicroseconds(12);             // Wait long enough for the sensor to realize the trigger pin is high. Sensor specs say to wait 10uS.
 	*_triggerOutput &= ~_triggerBit;   // Set trigger pin back to low.
 
 	#if ONE_PIN_ENABLED == true
